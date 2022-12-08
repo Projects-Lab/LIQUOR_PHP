@@ -26,6 +26,8 @@ if(isset($_POST['actualizar'])){
 
     </script>';
 
+    
+
 
 }
 
