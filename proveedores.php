@@ -75,54 +75,47 @@ use LDAP\Result;
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                            <?php
+                        <?php
                         include('conexion.php');
-                            $consult = "SELECT * FROM proveedor";
-                            $result = mysqli_query($conex,$consult);
+                        $consult = "SELECT * FROM proveedor";
+                        $result = $conex->query($consult);
+                        ?>
 
-                            if($result){
-                                while($row = $result->fetch_array()){
-                                    $nombre = $row['nombre_proveedor'];
-                                    $rut = $row['rut_proveedor'];
-                                    $email = $row['email_proveedor'];
+                        <?php while($row = $result->fetch_assoc()){ ?>
+                            
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="font-medium text-gray-800"> <?php echo $row['rut_proveedor']; ?> </div>
+                                    </div>
+                                </td>
 
-                                    
-                                       echo '<tr>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="font-medium text-gray-800"> '.$nombre.' </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-left font-medium text-green-500"> '.$rut.'</div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-left">'.$email.'</div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-green-500"> <?php echo $row['nombre_proveedor']; ?> </div>
+                                </td>
+
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left"> <?php echo $row['email_proveedor']; ?> </div>
+                                </td>
+
+                                <td class="p-2 whitespace-nowrap">
                                             <div class="text-lg text-center">
-                                                <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                                <a href="editar_proveedor.php" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
                                                 <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
                                             </div>
-                                        </td>
-                                    </tr> ';
+                                </td>
 
-                                }
-                            }
+                            </tr>
+
+
+                        <?php }?>
 
                         
-                        ?>
-                                
 
-                                    
-                               
-                                
-                                
-                               
-                                
-                                   
-                                
+                        
+                        
 
+                    
                             </tbody>
                         </table>
                     </div>
