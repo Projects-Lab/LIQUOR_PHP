@@ -75,11 +75,61 @@ use LDAP\Result;
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
+<<<<<<< HEAD
                         <?php
                         include('conexion.php');
                         $consult = "SELECT * FROM proveedor";
                         $result = $conex->query($consult);
                         ?>
+=======
+                            <?php
+                        include('conexion.php');
+                            $consult = "SELECT * FROM proveedor";
+                            $result = mysqli_query($conex,$consult);
+
+                            if($result){
+                                while($row = $result->fetch_array()){
+                                    $nombre = $row['nombre_proveedor'];
+                                    $rut = $row['rut_proveedor'];
+                                    $email = $row['email_proveedor'];
+
+                                    
+                                       echo '<tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800"> '.$nombre.' </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-green-500"> '.$rut.'</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left">'.$email.'</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">
+                                                <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                                <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
+                                            </div>
+                                        </td>
+                                    </tr> ';
+
+                                }
+                            }
+
+                        
+                        ?>
+                                
+
+                                    
+                               
+                                
+                                
+                               
+                                
+                                   
+                                
+>>>>>>> 2a9eaf6e776887be8daea1bba79a760df1029cf5
 
                         <?php while($row = $result->fetch_assoc()){ ?>
                             
