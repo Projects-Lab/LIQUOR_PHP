@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PROVEEDORES</title>
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -86,12 +86,12 @@ use LDAP\Result;
                             <tr>
                                 <td class="p-2 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="font-medium text-gray-800"> <?php echo $row['rut_proveedor']; ?> </div>
+                                        <div class="font-medium text-gray-800"> <?php echo $row['nombre_proveedor']; ?> </div>
                                     </div>
                                 </td>
 
                                 <td class="p-2 whitespace-nowrap">
-                                    <div class="text-left font-medium text-green-500"> <?php echo $row['nombre_proveedor']; ?> </div>
+                                    <div class="text-left font-medium text-green-500"> <?php echo $row['rut_proveedor']; ?> </div>
                                 </td>
 
                                 <td class="p-2 whitespace-nowrap">
@@ -99,10 +99,10 @@ use LDAP\Result;
                                 </td>
 
                                 <td class="p-2 whitespace-nowrap">
-                                            <div class="text-lg text-center">
-                                                <a href="editar_proveedor.php" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                                <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                            </div>
+                                    <div class="text-lg text-center">
+                                        <a href="editar_proveedor.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                        <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
+                                    </div>
                                 </td>
 
                             </tr>

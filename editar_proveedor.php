@@ -1,4 +1,36 @@
 <!-- component -->
+<?php
+
+include('conexion.php');
+
+//generar la consulta para los datos
+$id = $_GET['id'];
+$consulta_proveedor = "SELECT * FROM proveedor WHERE id = '$id'";
+$update = $conex->query($consulta_proveedor);
+$datos = $update->fetch_array();
+
+if(isset($_POST['actualizar'])){
+    $id = $_POST['id'];
+    $n_proveedor = $conex-> real_escape_string($_POST['modificar_nombre_proveedor']);
+    $r_proveedor = $conex -> real_escape_string($_POST['modificar_rut_proveedor']);
+    $e_proveedor = $conex -> real_escape_string($_POST['modificar_email_proveedor']);
+
+    //realizar la consulta para modificar los datos
+    $actualiza = "UPDATE proveedor SET rut_proveedor = '$r_proveedor', nombre_proveedor = '$n_proveedor', email_proveedor = '$e_proveedor' WHERE id = '$id'";
+    $actualizar = $conex->query($actualiza);
+
+    echo'<script>
+
+    alert("DATOS ACTUALIZADOS CORRECTAMENTE");
+    window.location = "proveedores.php";
+
+    </script>';
+
+
+}
+
+?>
+
 <html lang="es">
 
 <head>
@@ -25,15 +57,16 @@ use LDAP\Result;
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" class="rounded flex justify-center items-center flex-col   shadow-md" method="post">
                     <p class="mb-2 text-3xl text-gray-600">Actualizar Proveedor</p>
                     <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Proveedor" type="text" name="modificar_nombre_proveedor" required value="">
+                        <input type="hidden" name="id" value="<?php echo $datos['id'];?>">
+                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Proveedor" type="text" name="modificar_nombre_proveedor" required value="<?php echo $datos['nombre_proveedor'];?>">
                     </div>
                     <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="RUT" type="text" name="modificar_rut_proveedor" required name="">
+                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="RUT" type="text" name="modificar_rut_proveedor" required value="<?php echo $datos['rut_proveedor'];?>">
                     </div>
                     <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Correo" type="email"  name="modificar_email_proveedor" required name="">
+                        <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Correo" type="email"  name="modificar_email_proveedor" required value="<?php echo $datos['email_proveedor'];?>">
                     </div>
-                    <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="submit"><span>Actualizar proveedor</span></button>
+                    <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="" type="submit" name="actualizar"><span>Actualizar proveedor</span></button>
                 </form>
 </div>
 
