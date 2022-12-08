@@ -21,19 +21,25 @@
     ?>
     <div class="mt-12 flex flex-wrap justify-around ">
 
-        <form class=" rounded flex justify-center items-center flex-col shadow-md">
+        <form action="registrar_proveedor.php" class="rounded flex justify-center items-center flex-col   shadow-md" method="post">
             <p class="mb-2 text-3xl text-gray-600">Crear Proveedores</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Proveedor" type="text" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Proveedor" type="text" name="nombre_proveedor" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="RUT" type="text" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="RUT" type="text" name="rut_proveedor" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Correo" type="email" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Correo" type="email"  name="email_proveedor" required>
             </div>
-            <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit"><span>Crear</span></button>
+            <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="submit"><span>Crear</span></button>
         </form>
+
+        <?php
+            include('registrar_proveedor.php');
+        ?>
+
+      
 
 
         <div>
