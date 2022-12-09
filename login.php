@@ -15,7 +15,7 @@ if($resultado = $conex->query($consulta)){
         $passok = $row['pass'];
 
     }
-    $resultado -> close();
+    $resultado->close();
 
     }
 
@@ -24,7 +24,7 @@ if($resultado = $conex->query($consulta)){
         if($recuperar_usuario == $userok && $recuperar_pass == $passok){
             $_SESSION['login'] = TRUE;
             $_SESSION['usuario'] = $usuario;
-            header("location:index.php");
+            header("location: index.php");
 
           
 
@@ -44,12 +44,6 @@ if($resultado = $conex->query($consulta)){
 
 
 }
-
-
-
-
-
-
 
 
 
