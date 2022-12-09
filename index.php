@@ -1,3 +1,4 @@
+
 <!-- component -->
 <html lang="es">
 
@@ -16,11 +17,11 @@
 
     <!-- component -->
 
-
     <?php
-    include "navbar.php";
+        include("navbar.php");
     ?>
 
+ 
 
 
     <section class="text-gray-600 body-font">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(0);
 require('conexion.php');
 
@@ -21,17 +22,11 @@ if($resultado = $conex->query($consulta)){
     $conex->close();
     if(isset($recuperar_usuario) && isset($recuperar_pass)){
         if($recuperar_usuario == $userok && $recuperar_pass == $passok){
-            $_SESSION['login'] = true;
-            $_SESSION['usuario'] = $userok;
-            //header("location:index.php");
+            $_SESSION['login'] = TRUE;
+            $_SESSION['usuario'] = $usuario;
+            header("location:index.php");
 
-            echo'<script>
-
-            alert("¡BIENVENIDO AL SISTEMA!");
-            window.location = "index.php";
-            
-
-            </script>';
+          
 
         }else{
             echo'<script>

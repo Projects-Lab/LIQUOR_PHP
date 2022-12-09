@@ -1,4 +1,4 @@
-<!-- component -->
+
 <html lang="es">
 
 <head>
