@@ -21,9 +21,10 @@
     ?>
     <div class="mt-12 flex flex-wrap justify-around ">
 
-        <form class=" rounded flex justify-center items-center flex-col shadow-md">
+        <form action="registrar_producto.php" method="post" class=" rounded flex justify-center items-center flex-col shadow-md">
             <p class="mb-2 text-3xl text-gray-600">Crear Productos</p>
-            <select id="countries" class=" mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+            <select name="proveedor" id="countries" class=" mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Escoge un Proveedor</option>
 
                             <?php
@@ -34,15 +35,15 @@
 
                         <?php while($row = $result->fetch_assoc()){ ?>
 
-                            <option value=""><?php echo $row['nombre_proveedor']?></option>
+                            <option value="<?php echo $row['id']?>"><?php echo $row['nombre_proveedor']?></option>
 
 
                         <?php }?>
                 
             </select>
 
-            <select id="countries" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Escoge una Categoria</option>
+            <select name="categoria" id="countries" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected >Escoge una Categoria</option>
 
                     <?php
                                 include('conexion.php');
@@ -52,21 +53,21 @@
 
                         <?php while($row = $result->fetch_assoc()){ ?>
 
-                            <option value=""><?php echo $row['nombre_categoria']?></option>
+                            <option value="<?php echo $row['id']?>"><?php echo $row['nombre_categoria']?></option>
 
 
                         <?php }?>
                 
             </select>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Producto" type="text" required name="nombre_producto">
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Producto" type="text" required name="producto">
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Descripcion" type="text" required name="descripcion_producto">
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Descripcion" type="text" required name="descripcion">
             </div>
            
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Precio" type="number" required name="precio_producto">
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Precio" type="number" required name="precio">
             </div>
             <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="submit"><span>Crear</span></button>
         </form>
