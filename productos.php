@@ -20,6 +20,13 @@
     include "navbar.php";
     ?>
     <div class="mt-12 flex flex-wrap justify-around ">
+        <div class="flex-col-reverse text-4xl ">
+            <div>
+                <a href="javascript: history.go(-1)">
+                    <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+                </a>
+            </div>
+        </div>
 
         <form action="registrar_producto.php" method="post" class=" rounded flex justify-center items-center flex-col shadow-md">
             <p class="mb-2 text-3xl text-gray-600">Crear Productos</p>
@@ -70,6 +77,7 @@
                 <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Precio" type="number" required name="precio">
             </div>
             <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="submit"><span>Crear</span></button>
+
         </form>
 
 
@@ -78,7 +86,7 @@
             <!-- Table -->
             <div class="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                 <header class="px-5 py-4 border-b border-gray-100">
-                    <h2 class="font-semibold text-gray-800">Customers</h2>
+                    <h2 class="text-center text-2xl font-semibold text-gray-800">Listado de Productos</h2>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
@@ -166,10 +174,14 @@
                 </div>
             </div>
         </div>
-        </section>
+        <div class="text-4xl flex space-x-4">
+            <ion-icon name="exit-outline"></ion-icon>
+        </div>
     </div>
-    </div>
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+
+    <?php
+    include "scripts.php";
+    ?>
 </body>
 
 </html>

@@ -41,6 +41,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="flex-col-reverse text-4xl ">
+                        <div>
+                            <a href="javascript: history.go(-1)">
+                                <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="p-4 md:w-1/3">
@@ -77,12 +84,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="flex justify-end text-4xl ">
+                        <div class="text-4xl flex space-x-4">
+                            <ion-icon name="exit-outline"></ion-icon>
+                        </div>
+                    </div>
                 </div>
                 <!--End here-->
             </div>
         </div>
     </section>
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    <?php
+    include "scripts.php";
+    ?>
 </body>
 
 </html>

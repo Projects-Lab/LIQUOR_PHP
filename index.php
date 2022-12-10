@@ -54,7 +54,7 @@
                         <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://firebasestorage.googleapis.com/v0/b/thecaffeinecode.appspot.com/o/blog.jpg?alt=media&token=271cb624-94d4-468d-a14d-455377ba75c2" alt="blog cover" />
                         <div class="p-4">
                             <div class="flex items-center text-center flex-wrap ">
-                                <a href="/" class="text-green-800  md:mb-2 lg:mb-0">
+                                <a href="ventas.php" class="text-green-800  md:mb-2 lg:mb-0">
                                     <p class="inline-flex items-center">Ventas
                                         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M5 12h14"></path>

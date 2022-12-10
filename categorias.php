@@ -19,9 +19,17 @@
     <?php
     include "navbar.php";
     ?>
-    <div class="mt-12 flex flex-wrap justify-around ">
-
+    <div class="flex flex-wrap justify-evenly my-20">
+    <div class="flex-col-reverse text-4xl ">
+                        <div>
+                            <a href="javascript: history.go(-1)">
+                                <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                    
         <form action="registrar_categoria.php" class=" rounded flex justify-center items-center flex-col shadow-md" method="post">
+
             <p class="mb-2 text-3xl text-gray-600">Crear Categoria</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
                 <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="categoria" type="text" required name="nombre_categoria">
@@ -37,7 +45,7 @@
         <div>
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                 <header class="px-5 py-4 border-b border-gray-100">
-                    <h2 class="font-semibold text-gray-800">Customers</h2>
+                    <h2 class="font-semibold text-gray-800">Lista de Categorias</h2>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
@@ -79,18 +87,24 @@
                             </tr>
 
 
-                        <?php }?>
-                                
+                        <?php }?>                               
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        </section>
+        <div class="flex justify-end text-4xl ">
+            <div class="text-4xl flex space-x-4">
+                <ion-icon name="exit-outline"></ion-icon>
+            </div>
+        </div>
     </div>
-    </div>
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+
+    <?php
+    include "scripts.php";
+    ?>
 </body>
 
 </html>
