@@ -27,14 +27,19 @@
                             </a>
                         </div>
                     </div>
+                    
+        <form action="registrar_categoria.php" class=" rounded flex justify-center items-center flex-col shadow-md" method="post">
 
-        <form class=" w-80 rounded flex justify-center items-center flex-col shadow-md">
             <p class="mb-2 text-3xl text-gray-600">Crear Categoria</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="categoria" type="text" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="categoria" type="text" required name="nombre_categoria">
             </div>
-            <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit"><span>Crear</span></button>
+            <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="submit"><span>Crear</span></button>
         </form>
+
+        <?php
+            include('registrar_categoria.php');
+        ?>
 
 
         <div>
@@ -56,23 +61,34 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+
+                            <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM categoria";
+                                $result = $conex->query($consult);
+                             ?>    
+
+                        <?php while($row = $result->fetch_assoc()){ ?>
+                            
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="font-medium text-gray-800"> <?php echo $row['nombre_categoria']; ?> </div>
+                                    </div>
+                                </td>
+
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-lg text-center">
+                                        <a href="editar_categoria.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                        <a href="eliminar_categoria.php?id=<?php echo $row['id'];?>" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+
+                        <?php }?>                               
+
                             </tbody>
                         </table>
                     </div>
