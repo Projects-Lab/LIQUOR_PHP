@@ -106,151 +106,60 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
+                            <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM productos p INNER JOIN categoria c ON p.categoria_id =c.id INNER JOIN proveedor pr ON 
+                                p.id_proveedor=pr.id";
+                            
+                                $result = $conex->query($consult);
+                             ?>  
+
+                            <?php while($row = $result->fetch_assoc()){ ?>
+
                                 <tr>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
+                                            <div class="font-medium text-gray-800">  <?php echo $row['nombre_proveedor']; ?> </div>
                                         </div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
+                                            <div class="font-medium text-gray-800">  <?php echo $row['nombre_categoria']; ?> </div>
                                         </div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
+                                            <div class="font-medium text-gray-800">  <?php echo $row['nombre_producto']; ?> </div>
                                         </div>
-                                    </td>      
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">$2,890.66</div>
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800">  <?php echo  $row['descripcion_producto']; ?> </div>
+                                        </div>
                                     </td>
+
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="text-left font-medium text-green-500"> <?php echo '$'. $row['precio']; ?> </div>
+                                    </td>
+
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
                                             <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
                                             <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
                                         </div>
                                     </td>
+
+
                                 </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>      
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">$2,890.66</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                            <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>      
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">$2,890.66</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                            <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>      
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">$2,890.66</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                            <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>      
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">$2,890.66</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                            <a href="#" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
-                                        </div>
-                                    </td>
-                                </tr>
+
+
+
+                                <?php }?>
+                              
+                                
                             </tbody>
                         </table>
                     </div>
