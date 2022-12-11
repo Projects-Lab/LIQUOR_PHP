@@ -87,7 +87,8 @@
 
                     <div class="flex justify-end text-4xl ">
                         <div class="text-4xl flex space-x-4">
-                            <ion-icon name="exit-outline"></ion-icon>
+                        <a href="login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><ion-icon name="exit-outline"></ion-icon></a>
+                            
                         </div>
                     </div>
                 </div>
