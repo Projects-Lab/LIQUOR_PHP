@@ -1,7 +1,7 @@
 <?php
 include('conexion.php');
 
-print_r($_POST);
+//print_r($_POST);
 
 if(isset($_POST["submit"])){
     if(preg_match('/^[a-zA-Z-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nombre"])){
