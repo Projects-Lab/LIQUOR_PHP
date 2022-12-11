@@ -139,7 +139,7 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
                                            
-                                            <a href="#" class="bg-red-500 px-1 text-white">
+                                            <a href="eliminar_venta.php?id=<?php echo $row['id'];?>" class="bg-red-500 px-1 text-white">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </a>
                                         </div>
