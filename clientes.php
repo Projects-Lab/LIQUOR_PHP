@@ -18,9 +18,11 @@
 
     <?php
     include "navbar.php";
+    include('registrar_cliente.php');
     ?>
+
     <div class="mt-12 flex flex-wrap justify-around ">
-    <div class="flex-col-reverse text-4xl ">
+        <div class="flex-col-reverse text-4xl ">
             <div>
                 <a href="javascript: history.go(-1)">
                     <ion-icon name="arrow-undo-circle-outline"></ion-icon>
@@ -28,19 +30,22 @@
             </div>
         </div>
 
-        <form action="#" class="w-80 rounded flex justify-center items-center flex-col shadow-md" method="post">
+        <form action="registrar_cliente.php" class="w-80 rounded flex justify-center items-center flex-col shadow-md" method="post">
             <p class="mb-2 text-3xl text-gray-600">Crear Clientes</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre_cliente" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido_cliente" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Telefono" type="number" name="telefono_cliente" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Telefono" type="number" name="telefono" required>
             </div>
             <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" type="submit"><span>Crear</span></button>
         </form>
+        <?php
+        include('registrar_cliente.php');
+        ?>
 
         <div>
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
@@ -68,29 +73,37 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800"> Pablo </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">Chacon</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">3213213213</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM clientes";
+                                $result = $conex->query($consult);
+                                ?>
+
+                                <?php while ($row = $result->fetch_assoc()) { ?>
+                                    <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800"><?php echo $row['nombre']; ?></div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-green-500"><?php echo $row['apellido']; ?></div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left"><?php echo $row['telefono']; ?></div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">
+                                                <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
+                                                    <ion-icon name="create-outline"></ion-icon>
+                                                </a>
+                                                <a href="#" class="bg-red-500 px-1 text-white">
+                                                    <ion-icon name="trash-outline"></ion-icon>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
