@@ -112,7 +112,8 @@
                             <tbody class="text-sm divide-y divide-gray-100">
                             <?php
                                 include('conexion.php');
-                                $consult = "SELECT * FROM ventas";
+                                $consult = "SELECT * FROM ventas v INNER JOIN clientes c ON v.id_cliente =c.id INNER JOIN productos pr ON 
+                                v.id_producto=pr.id";
                                 $result = $conex->query($consult);
                                 ?>
 
@@ -120,12 +121,12 @@
                                 <tr>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="font-medium text-gray-800"><?php echo $row['id_cliente']; ?></div>
+                                            <div class="font-medium text-gray-800"><?php echo $row['nombre_cliente']; ?></div>
                                         </div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="font-medium text-gray-800"><?php echo $row['id_producto']; ?></div>
+                                            <div class="font-medium text-gray-800"><?php echo $row['nombre_producto']; ?></div>
                                         </div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
