@@ -46,6 +46,7 @@
 
 
                         <?php }?>
+
                 
             </select>
 
@@ -134,6 +135,7 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="font-medium text-gray-800">  <?php echo $row['nombre_categoria']; ?> </div>
+
                                         </div>
                                     </td>
 
@@ -146,11 +148,14 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="font-medium text-gray-800">  <?php echo  $row['descripcion_producto']; ?> </div>
+
                                         </div>
                                     </td>
 
                                     <td class="p-2 whitespace-nowrap">
+
                                         <div class="text-left font-medium text-green-500"> <?php echo '$'. $row['precio']; ?> </div>
+
                                     </td>
 
                                     <td class="p-2 whitespace-nowrap">
@@ -162,12 +167,7 @@
 
 
                                 </tr>
-
-
-
                                 <?php }?>
-                              
-                                
                             </tbody>
                         </table>
                     </div>

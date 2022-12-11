@@ -1,6 +1,6 @@
 <?php
 
-$conex = mysqli_connect('localhost', 'root', '', 'liqor');
+$conex = new mysqli("localhost","root","","liquor");
 
 
 ?>

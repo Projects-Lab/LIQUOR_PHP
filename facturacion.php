@@ -19,6 +19,7 @@
 
     <?php
     include "navbar.php";
+    include "conexion.php";
     ?>
 
     <div class="mt-12 flex flex-wrap justify-around ">
@@ -109,127 +110,43 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM facturas";
+                                $result = $conex->query($consult);
+                                ?>
 
+                                <?php while ($row = $result->fetch_assoc()) { ?>
+                                <tr>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['id_cliente']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['id_producto']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['cantidad']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="text-left"><?php echo $row['descripcion']; ?></div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="text-lg text-center">
+                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </a>
+                                            <a href="#" class="bg-red-500 px-1 text-white">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <?php } ?>
                             </tbody>
                         </table>
                     </div>

@@ -18,9 +18,11 @@
 
     <?php
     include "navbar.php";
+    include('registrar_cliente.php');
     ?>
+
     <div class="mt-12 flex flex-wrap justify-around ">
-    <div class="flex-col-reverse text-4xl ">
+        <div class="flex-col-reverse text-4xl ">
             <div>
                 <a href="javascript: history.go(-1)">
                     <ion-icon name="arrow-undo-circle-outline"></ion-icon>
@@ -31,16 +33,19 @@
         <form action="registrar_cliente.php" class="w-80 rounded flex justify-center items-center flex-col shadow-md" method="post">
             <p class="mb-2 text-3xl text-gray-600">Crear Clientes</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre_cliente" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido_cliente" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
                 <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Telefono" type="text" name="telefono_cliente" required>
             </div>
             <button class="my-3 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" type="submit" name="submit"><span>Crear</span></button>
         </form>
+        <?php
+        include('registrar_cliente.php');
+        ?>
 
         <div>
             <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
@@ -107,7 +112,6 @@
                                 <?php }?>
 
 
-                                
                             </tbody>
                         </table>
                     </div>
