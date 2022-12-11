@@ -68,29 +68,46 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
+                            <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM clientes";
+                            
+                                $result = $conex->query($consult);
+                             ?> 
+
+                            <?php while($row = $result->fetch_assoc()){ ?>
                                 <tr>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800"> Pablo </div>
-                                        </div>
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800">  <?php echo $row['nombre_cliente']; ?> </div>
+                                            </div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left font-medium text-green-500">Chacon</div>
+                                            <div class="flex items-center">
+                                                <div class="font-medium text-gray-800">  <?php echo $row['apellido_cliente']; ?> </div>
+                                            </div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">3213213213</div>
+                                        <div class="text-left"><?php echo $row['telefono_cliente']; ?></div>
                                     </td>
+
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
+                                            <a href="editar_producto.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                            <a href="eliminar_producto.php?id=<?php echo $row['id'];?>" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
                                         </div>
                                     </td>
+
+                                    
                                 </tr>
+
+
+                                <?php }?>
+
+
+                                
                             </tbody>
                         </table>
                     </div>
