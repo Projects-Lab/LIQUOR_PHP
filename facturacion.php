@@ -112,7 +112,7 @@
                             <tbody class="text-sm divide-y divide-gray-100">
                             <?php
                                 include('conexion.php');
-                                $consult = "SELECT * FROM facturas";
+                                $consult = "SELECT * FROM ventas";
                                 $result = $conex->query($consult);
                                 ?>
 
@@ -138,9 +138,7 @@
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
+                                           
                                             <a href="#" class="bg-red-500 px-1 text-white">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </a>
