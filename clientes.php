@@ -95,7 +95,7 @@
 
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
-                                            <a href="editar_producto.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                            <a href="editar_cliente.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
                                             <a href="eliminar_cliente.php?id=<?php echo $row['id'];?>" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
                                         </div>
                                     </td>
