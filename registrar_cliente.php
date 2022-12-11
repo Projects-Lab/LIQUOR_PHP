@@ -1,5 +1,6 @@
 <?php
 include('conexion.php');
+
 if(isset($_POST['submit'])){
     if(preg_match('/^[a-zA-Z-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nombre_cliente"])
      && preg_match('/^[a-zA-Z-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["apellido_cliente"]) 
@@ -20,7 +21,6 @@ if(isset($_POST['submit'])){
 
             </script>';
         }
-
 
 
 
