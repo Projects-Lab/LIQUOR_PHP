@@ -19,6 +19,7 @@
 
     <?php
     include "navbar.php";
+    include "conexion.php";
     ?>
 
     <div class="mt-12 flex flex-wrap justify-around ">
@@ -35,28 +36,31 @@
         <form class=" w-80 rounded flex justify-center items-center flex-col shadow-md">
             <p class="my-4 text-2xl text-gray-600 font-bold ">Registrar Venta</p>
 
-            <select id="countries" class=" mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Escoge un Cliente</option>
-                <option value="">Cliente 1</option>
-                <option value="">Cliente 2</option>
-                <option value="">Cliente 3</option>
-                <option value="">Cliente 4</option>
+            <select name=id_clientes id="clientes" class=" mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label for="exampleFormControlInput1" class="form-label">Cliente</label>
+                <?php
+                $sql = $conex->query("SELECT id, nombre FROM clientes");
+                while ($data = $sql->fetch_object()) {
+                    echo "<option value='{$data->id}'>{$data->nombre}</option>";
+                }
+                ?>
             </select>
 
-            <select id="countries" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Escoge una Producto</option>
-                <option value="US">Producto 1</option>
-                <option value="CA">Producto 2</option>
-                <option value="FR">Producto 3</option>
-                <option value="DE">Producto 4</option>
+            <select name=id_productos id="countries" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <?php
+                $sql = $conex->query("SELECT id, nombre_producto FROM productos");
+                while ($data = $sql->fetch_object()) {
+                    echo "<option value='{$data->id}'>{$data->nombre_producto}</option>";
+                }
+                ?>
             </select>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Cantidad" type="number" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Cantidad" type="number" name="cantidad" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Descripcion" type="text" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Descripcion" name="descripcion" type="text" required>
             </div>
-            <button class=" my-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit"><span>Registrar Venta</span></button>
+            <button class=" my-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-800 dark:focus:ring-green-900" id="login" type="submit" name="addfactura"><span>Registrar Venta</span></button>
         </form>
 
 
@@ -91,127 +95,43 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">
-                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </a>
-                                            <a href="#" class="bg-red-500 px-1 text-white">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <?php
+                                include('conexion.php');
+                                $consult = "SELECT * FROM facturas";
+                                $result = $conex->query($consult);
+                                ?>
 
+                                <?php while ($row = $result->fetch_assoc()) { ?>
+                                <tr>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['id_cliente']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['id_producto']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="font-medium text-gray-800"><?php echo $row['cantidad']; ?></div>
+                                        </div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="text-left"><?php echo $row['descripcion']; ?></div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        <div class="text-lg text-center">
+                                            <a href="#" class="bg-yellow-500 px-1 text-white hover:shadow-lg ">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </a>
+                                            <a href="#" class="bg-red-500 px-1 text-white">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <?php } ?>
                             </tbody>
                         </table>
                     </div>
