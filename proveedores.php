@@ -1,4 +1,9 @@
-
+<?php 
+    session_start(); 
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index.php');
+    }
+?>
 <html lang="es">
 
 <head>
@@ -18,9 +23,7 @@
 
     <?php
 
-    use LDAP\Result;
-
-    include "navbar.php";
+       include "navbar.php";
     ?>
     <div class="mt-12 flex flex-wrap justify-around ">
         <div class="flex-col-reverse text-4xl ">
