@@ -1,4 +1,8 @@
 <?php
+session_start(); 
+if(!isset($_SESSION['usuario'])){
+    header('Location: index.php');
+}
 include('conexion.php');
 
 if(isset($_POST["submit"])){
@@ -14,7 +18,7 @@ if(isset($_POST["submit"])){
       </script>';
     }
 
-    if(preg_match('/^[0-9]+$/', $_POST["rut_proveedor"])){
+    if($_POST["rut_proveedor"]){
         $rut_proveedor = $_POST["rut_proveedor"];
 
     }else{

@@ -1,3 +1,9 @@
+<?php 
+    session_start(); 
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index.php');
+    }
+?>
 <!-- component -->
 <html lang="es">
 
@@ -85,13 +91,13 @@
         <div>
             <!-- component -->
             <!-- Table -->
-            <div class="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+            <div class="w-100 max-w-3xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
                 <header class="px-5 py-4 border-b border-gray-100">
                     <h2 class="text-center text-2xl font-semibold text-gray-800">Listado de Productos</h2>
                 </header>
                 <div class="p-3">
                     <div class="overflow-x-auto">
-                        <table class="table-auto w-full">
+                        <table class="table-auto w-100">
                             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                 <tr>
                                     <th class="p-2 whitespace-nowrap">
@@ -117,8 +123,17 @@
                             <tbody class="text-sm divide-y divide-gray-100">
                             <?php
                                 include('conexion.php');
-                                $consult = "SELECT * FROM productos p INNER JOIN categoria c ON p.categoria_id =c.id INNER JOIN proveedor pr ON 
-                                p.id_proveedor=pr.id";
+                                $consult = "SELECT 
+                                                p.id as id_producto, 
+                                                pr.nombre_proveedor as nombre_proveedor, 
+                                                c.nombre_categoria as nombre_categoria, 
+                                                p.nombre_producto as nombre_producto, 
+                                                p.descripcion_producto as descripcion_producto, 
+                                                p.precio as precio 
+                                                FROM productos p 
+                                                INNER JOIN categoria c ON p.categoria_id = c.id 
+                                                INNER JOIN proveedor pr ON p.id_proveedor = pr.id 
+                                                ORDER by nombre_producto asc";
                             
                                 $result = $conex->query($consult);
                              ?>  
@@ -160,8 +175,8 @@
 
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
-                                            <a href="editar_producto.php?id=<?php echo $row['id'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
-                                            <a href="eliminar_producto.php?id=<?php echo $row['id'];?>" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
+                                            <a href="editar_producto.php?id=<?php echo $row['id_producto'];?>" class="bg-blue-500 p-1 text-white hover:shadow-lg text-xs font-thin">Editar</a>
+                                            <a href="eliminar_producto.php?id=<?php echo $row['id_producto'];?>" class="bg-red-500 p-1 text-white hover:shadow-lg text-xs font-thin">Borrar</a>
                                         </div>
                                     </td>
 

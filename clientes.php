@@ -1,3 +1,9 @@
+<?php 
+    session_start(); 
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index.php');
+    }
+?>
 <!-- component -->
 <html lang="es">
 
@@ -33,10 +39,10 @@
         <form action="registrar_cliente.php" class="w-80 rounded flex justify-center items-center flex-col shadow-md" method="post">
             <p class="mb-2 text-3xl text-gray-600">Crear Clientes</p>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Nombre" type="text" name="nombre_cliente" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
-                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido" required>
+                <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Apellido" type="text" name="apellido_cliente" required>
             </div>
             <div class="flex my-2 mx-4 md:mx-2 border-b-2 border-gray-700 hover:border-green-800">
                 <input class="text-center w-full py-2 pl-2 md:pl-8 border-0 focus:outline-none" placeholder="Telefono" type="text" name="telefono_cliente" required>

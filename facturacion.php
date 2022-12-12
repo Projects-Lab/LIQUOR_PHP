@@ -1,3 +1,9 @@
+<?php 
+    session_start(); 
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index.php');
+    }
+?>
 <!-- component -->
 <html lang="es">
 
@@ -112,8 +118,15 @@
                             <tbody class="text-sm divide-y divide-gray-100">
                             <?php
                                 include('conexion.php');
-                                $consult = "SELECT * FROM ventas v INNER JOIN clientes c ON v.id_cliente =c.id INNER JOIN productos pr ON 
-                                v.id_producto=pr.id";
+                                $consult = "SELECT
+                                                v.id as id_venta,
+                                                c.nombre_cliente as nombre_cliente,
+                                                pr.nombre_producto as nombre_producto,
+                                                v.cantidad as cantidad,
+                                                v.descripcion as descripcion
+                                            FROM ventas v
+                                            INNER JOIN clientes c ON v.id_cliente = c.id
+                                            INNER JOIN productos pr ON v.id_producto = pr.id;";
                                 $result = $conex->query($consult);
                                 ?>
 
@@ -140,7 +153,7 @@
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">
                                            
-                                            <a href="eliminar_venta.php?id=<?php echo $row['id'];?>" class="bg-red-500 px-1 text-white">
+                                            <a href="eliminar_venta.php?id=<?php echo $row['id_venta'];?>" class="bg-red-500 px-1 text-white">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </a>
                                         </div>
